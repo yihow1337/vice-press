@@ -1,5 +1,17 @@
+# Build output: `MAKEFUN_OUTPUT_DIR=out node main.ts` writes the hand-in here. It is rebuilt from app/,
+# screenshots/ and vendor/, so it never belongs in the repository.
 out/
 out*/
+
+# Node, if anything ever pulls a dependency in. The app itself has none and must not grow any: everything it
+# loads is a file under app/.
 node_modules/
-.DS_Store
+
+# Logs and editor or OS leftovers.
 *.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Scratch space for screenshot retakes.
+screenshots/*.tmp

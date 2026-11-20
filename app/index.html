@@ -3,21 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>VICE PRESS — offline poster studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0710'/%3E%3Crect x='5' y='6' width='9' height='20' fill='%23ff2d95'/%3E%3Crect x='17' y='6' width='10' height='9' fill='%2319e0d8'/%3E%3Crect x='17' y='17' width='10' height='9' fill='%23ffb45c'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
+<header class="topbar">
+  <div class="wordmark" aria-label="Vice Press">
+    <span class="wordmark-vice">VICE</span><span class="wordmark-press">PRESS</span>
+    <span class="wordmark-rule"></span>
+  </div>
+  <p class="standfirst">Multi-panel cover studio · everything stays on this machine</p>
+  <div class="sizes" id="size-pills" role="group" aria-label="Post size"></div>
+  <div class="topbar-actions">
+    <button id="export-all" class="button ghost" type="button">All 3 sizes</button>
+    <button id="export" class="button primary" type="button">Export PNG</button>
+  </div>
+</header>
+
+<main class="studio">
+  <aside class="rail">
+    <section class="rail-block">
+      <h2>Photos</h2>
+      <button id="drop" class="dropzone" type="button">
+        <span class="dropzone-title">Drop photos here</span>
+        <span class="dropzone-sub">or click to choose · JPG, PNG, WEBP</span>
+      </button>
+      <input id="file-input" type="file" accept="image/*" multiple hidden>
+      <div class="samples">
+        <span class="field-label">Start with a sample</span>
+        <div class="sample-row" id="samples"></div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+
+    <section class="rail-block">
+      <h2>Layout</h2>
+      <div class="layouts" id="layouts" role="group" aria-label="Layout"></div>
+    </section>
+
+    <section class="rail-block">
+      <h2>Colour grade</h2>
+      <div class="grades" id="grades" role="group" aria-label="Colour grade"></div>
+    </section>
+  </aside>
+
+  <section class="stage">
+    <div class="preview-wrap" id="preview-wrap">
+      <canvas id="preview" aria-label="Live cover preview"></canvas>
+    </div>
+
+    <div class="deck">
+      <label class="field grow">
+        <span class="field-label">Caption</span>
+        <input id="caption" type="text" maxlength="30" value="PINK HEAT" spellcheck="false">
+      </label>
+      <label class="field">
+        <span class="field-label">Tagline</span>
+        <input id="tagline" type="text" maxlength="34" value="EST. AFTER DARK" spellcheck="false">
+      </label>
+      <div class="field">
+        <span class="field-label">Align</span>
+        <div class="segmented" id="align" role="group" aria-label="Caption alignment"></div>
+      </div>
+      <div class="field">
+        <span class="field-label">Type scale</span>
+        <input id="type-scale" type="range" min="62" max="100" value="100" aria-label="Type scale">
+      </div>
+      <div class="field panel-tools" id="panel-tools">
+        <span class="field-label" id="panel-label">Panel</span>
+        <div class="segmented">
+          <button id="panel-fill" type="button">Fill</button>
+          <button id="panel-fit" type="button">Fit</button>
+        </div>
+      </div>
+      <p class="status" id="status" role="status">Drag inside a panel to pan · wheel to zoom</p>
+    </div>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
 </main>
+
 <script type="module" src="./src/main.js"></script>
 </body>
 </html>

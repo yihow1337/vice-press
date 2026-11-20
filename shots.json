@@ -1,5 +1,30 @@
 [
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
+  {
+    "name": "1-cover-wide.jpg",
+    "query": "?shot=cover&size=wide&photo=boulevard,pier&layout=banner&grade=vice&caption=PINK%20HEAT&tagline=EST.%20AFTER%20DARK",
+    "w": 1280,
+    "h": 720,
+    "note": "the exported 16:9 cover, painted by the app at 1280 x 720"
+  },
+  {
+    "name": "2-editor.jpg",
+    "query": "?shot=editor&size=wide&photo=boulevard,pier&layout=banner&grade=vice&caption=PINK%20HEAT&tagline=EST.%20AFTER%20DARK&select=1",
+    "w": 1280,
+    "h": 720,
+    "note": "the studio at work: photos loaded, panels, grades and the caption deck"
+  },
+  {
+    "name": "3-cover-portrait.jpg",
+    "query": "?shot=cover&size=portrait&photo=boulevard,pier&layout=magazine&grade=vice&caption=SUNSET%20RUSH",
+    "w": 1024,
+    "h": 1280,
+    "note": "the 4:5 cover with the magazine type column"
+  },
+  {
+    "name": "4-cover-square.jpg",
+    "query": "?shot=cover&size=square&photo=boulevard,pier&layout=hero&grade=neon&caption=VICE%20HOUR",
+    "w": 1080,
+    "h": 1080,
+    "note": "the 1:1 cover, hero stack layout, neon night grade"
+  }
 ]
